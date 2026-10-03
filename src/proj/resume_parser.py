@@ -275,7 +275,9 @@ def read_resume(file_path):
 
 
 # lets do it now
-resume_folder = Path("resumes")
+resume_folder = Path(__file__).parent.parent / "resumes"
+if not resume_folder.exists():
+    raise SystemExit(f"Resumes folder not found: {resume_folder}")
 all_results=[]
 for file_path in resume_folder.iterdir():
     #C:\Users\Pratyush\padho_with_pratyush\week1\day5\resumes\abhay resume new - Abhay Singh.pdf
